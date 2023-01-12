@@ -1,0 +1,13 @@
+/* .loginContainer {
+    width: 100%;
+
+    margin: 0 auto;
+} */
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #243743;
+}

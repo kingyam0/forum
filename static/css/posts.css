@@ -1,0 +1,205 @@
+html,
+body {
+    font-family: "Brawler";
+    font-size: 20px;
+}
+
+button {
+    margin: 50px;
+    font-family: inherit;
+}
+
+
+/* Fill button styling */
+.btn_cancel {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.btn_cancel::after {
+    content: "";
+    background-color: #ffffff;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.btn_cancel:hover::after {
+    top: 0px;
+    left: 0px;
+}
+
+.btn_submit {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 3px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+.btn_submit::after {
+    content: "";
+    background-color: blue;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+}
+
+.header {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 3px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+.header::after {
+    content: "";
+    background-image: linear-gradient(lightblue, white);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+}
+
+.post {
+    border: 3px solid #888;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background: #f8efbd;
+    padding: 20px 25px;
+}
+
+.post_info {
+    border: 3px solid #888;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background: #fffff0;
+    padding: 20px 25px;
+}
+
+.forum {
+    width: 100%;
+    max-width: 200px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    display: inline-block;
+    margin-left: 20px;
+
+}
+
+.forum a {
+    color: white;
+    text-decoration: none;
+}
+
+.section {
+    width: 100%;
+    margin: 130px auto;
+}
+
+.author {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    text-transform: capitalize;
+    line-height: 40px;
+    text-decoration: none;
+    color: black;
+    transition: color .1s linear;
+    display: block;
+}
+
+.title:hover {
+    color: #243743;
+}
+
+.categories {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.date {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.content {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #243743;
+
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+input[type=text] {
+    font-size: 16px;
+    /* // Capitalized to prevent Sass
+    // thinking it's the Sass max() */
+    font-size: Max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+    transition: 180ms box-shadow ease-in-out;
+}
+
+.textarea {
+    font-size: 16px;
+    /* // Capitalized to prevent Sass
+    // thinking it's the Sass max() */
+    font-size: Max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+    transition: 180ms box-shadow ease-in-out;
+}

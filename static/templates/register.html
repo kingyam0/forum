@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forum-Register</title>
+  <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+  <link type="text/css" rel="stylesheet" href="../static/css/register.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="forum">
+        <h1><a href="/">FORUM</a></h1>
+      </div>
+      <div class="bottom">
+        <a href="/login"> <button type="submit">Login</button></a>
+      </div>
+    </div>
+  </header>
+
+  <center>
+    <section class="section">
+      <div class="container">
+        <form class="forum" action="/registerauth" method="post">
+
+          <div class="container">
+            <table>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <th cellPadding="30px">Account Registration</th>
+              </tr>
+              <tr>
+                <td>
+                  <ul id="regInstructions">
+                    <li><small>Username must contain only letters or numbers</small></li>
+                    <li><small>
+                        Username must be longer than 5 characters but shorter than 15
+                      </small></li>
+                    <li><small>
+                        Password must contain an uppercase letter, lowercase letter,
+                        number and special character
+                      </small></li>
+                    <li><small>
+                        Password must be greater than 8 characters but shorter than 20
+                      </small></li>
+                </td>
+              </tr>
+            </table>
+
+            <form action="/registerauth" method="POST">
+              <label for="username">Username</label><br />
+              <input type="username" name="username" id="username" required /><br />
+              <br>
+              <label for="email">Email</label><br />
+              <input type="text" name="email" id="email" required /><br />
+              <br>
+              <label for="password">Password</label><br />
+              <input type="password" name="password" id="password" required /><br />
+              <br>
+              <a><button style="display:block;" type="submit" class="registerBtn" href="/session.html">
+                  <strong>Register</strong>
+                </button></a>
+              <br>
+              <br>
+
+              <div class="container">
+                <a href="/">Cancel</a>
+                <span class="psw" id="psw" style="background-color: silver; padding-right: 10px;"><small>Already have an
+                    account?
+                  </small><a href="/login">Login </a></span>
+
+              </div>
+            </form>
+            <br /><br />
+            <!--  {{if .}}
+        {{.}}
+    {{end}}-->
+          </div>
+        </form>
+      </div>
+      <br>
+      <br>
+      <br>
+      <img id="footerimg" src="../static/assets/01Founderscrop2.png" alt="01founders" style="width:10%;">
+  </center>
+  </section>
+</body>
+
+</html>

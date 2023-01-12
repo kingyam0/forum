@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Forum-Login</title>
+  <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/login.css" />
+</head>
+
+<!-- ++++++++ Start of Modal Login Form +++++++++ -->
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="forum">
+        <h1><a href="/">FORUM</a></h1>
+      </div>
+      <div class="bottom">
+        <a href="/register"><button type="submit">Register</button></a>
+      </div>
+
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="loginContainer">
+      <form class="form" action="/loginauth" method="POST">
+
+        <div class="Navbar-buttons">
+          <!-- {{if .CookieChecker}} -->
+          <span><button id="homeBtn" class="navBarbtns">
+              <a href="/">Home</a>
+            </button></span> -->
+          <span><button id="logoutBtn" class="navBarbtns">
+              <a href="/logout">Log Out</a>
+            </button></span>
+          <span><button id="newpostBtn" class="navBarbtns">
+              <a href="/createpost">+Create Post</a>
+            </button></span>
+          <!-- {{else}} -->
+
+          <center><img src="../static/assets/forumavatar2.png" id="myavatar" alt="Avatar" class="avatar"
+              style="width: 15%" />
+          </center>
+          <!-- {{end}} -->
+
+          <center>
+            <br />
+
+
+            <!-- <div class="loginContainer"> -->
+            <label for="username" id="username"><b>Username</b></label>
+            <br />
+            <input type="text" name="username" required />
+            <br />
+            <br />
+            <label for="password" id="password"><b>Password</b></label>
+            <br />
+            <input type="password" name="password" required />
+            <br />
+            <br />
+
+            <label>
+              <input type="checkbox" name="remember" id="remember" />
+              Remember me
+            </label>
+            <br>
+            <br>
+            <div>
+              <input type="submit" id="submit" class="accountSubmit" value="Submit" />
+            </div>
+          </center>
+
+</body>
+
+</html>

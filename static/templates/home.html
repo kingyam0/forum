@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+  <link type="text/css" rel="stylesheet" href="../static/css/home.css" />
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="forum">
+        <a href="/"><img src="../static/assets/logo.png" alt="01F-logo" width="50" height="50" a href="/">FORUM</a>
+      </div>
+
+      <!-- If user is authenticated, buttons "create post" and "logout" are available -->
+      {{if .AuthUser}}
+      <div class="bottom signed" id="signed">
+        <center>
+          <h2>
+            <div>
+
+              <label class="username"><strong>🙂 Welcome {{ .AuthUser.Username }} !</strong></label>
+            </div>
+          </h2>
+        </center>
+        <center>
+          <div>
+            <a href="/filter?section=my_posts" target="_self"><button type="button" class="mypost"><strong>
+                  My posts 📮</strong></button></a>
+            <a href="/filter?section=liked" target="_self" rel="noopener noreferrer"><button type="submit">
+                <strong> Liked Posts 👌</strong>
+              </button></a>
+            <a href="/addpost"><button class="headerbtn" type="submit">
+                <strong>Create a post ✍</strong>
+              </button></a>
+            <a href="/logout"><button class="headerbtn"><strong>Logout 🚪</strong></button></a>
+          </div>
+        </center>
+        <center>
+          <h4 class="forumName"><strong>Forum Discussion Topics:</strong></h4>
+        </center>
+        <center>
+          <nav>
+            <a href="/filter?section=travel"><button target="_self" rel="noopener noreferrer" type="submit">
+                <strong>Travel 🏖</strong>
+              </button></a>
+            <a href="/filter?section=currentaffairs"><button target="_self" rel="noopener noreferrer" type="submit">
+                <strong>Current Affairs 🌍</strong>
+              </button></a>
+            <a href="/filter?section=sports"><button target="_self" rel="noopener noreferrer" type="submit">
+                <strong>Sports ⛹</strong>
+              </button></a>
+            <a href="/filter?section=hobby"><button target="_self" rel="noopener noreferrer" type="submit">
+                <strong>Hobby 🎭</strong>
+              </button></a>
+          </nav>
+        </center>
+        <br />
+      </div>
+      <!-- Else guest, buttons "log in" and "sign up" are available -->
+      {{ else }}
+      <div class="bottom notsigned" id="notsigned">
+
+        <a href="/login"> <button type="submit">Login</button></a>
+        <br><br>
+        <a href="/register"><button type="submit">Register</button></a>
+
+      </div>
+      <br><br><br><br>
+
+      <center>
+
+
+        <a href="/filter?section=travel" target="_self" type="button" class="simple"><strong>Travel ✈️ ||</strong></a>
+        <a href="/filter?section=currentaffairs" target="_self" rel="noopener noreferrer" type="submit">
+          <strong>Current Affairs 🌍 ||</strong>
+        </a>
+        <a href="/filter?section=sports" target="_self" rel="noopener noreferrer" type="submit">
+          <strong>Sports ⛹ ||</strong>
+        </a>
+        <a href="/filter?section=hobby" target="_self" rel="noopener noreferrer" type="submit">
+          <strong>Hobby 🎭 </strong>
+        </a>
+
+
+
+      </center>
+      {{ end}}
+
+    </div>
+  </header>
+
+  <!-- </header> -->
+  <br>
+  <br>
+  <main class="Scrollstyle">
+    <!-- <h2 class="name"><strong>Forum Discussion Topics:</strong></h2>
+        <nav>
+            <a href="/filter?section=travel"></a><button class="btn1 travel" name="travel" type="submit"><strong>Travel 🏖</strong></button>
+            <a href="/filter?section=currentaffairs"></a><button class="btn1 currentaffairs" name="currentaffairs" type="submit"><strong>Current Affairs 🌍</strong></button>
+            <a href="/filter?section=sports"></a><button class="btn1 sports" name="sports" type="submit"><strong>Sports ⛹</strong></button>
+            <a href="/filter?section=hobby"></a><button class="btn1 hobby" name="hobby" type="submit"><strong>Hobby 🎭</strong></button>
+        </nav>
+        <br> -->
+    <center>
+      <section class="section">
+        <div class="container">
+          <div class="posts">
+            <!-- If user is authenticated, displaying greeting -->
+
+            <!-- Displaying of all posts -->
+            {{if .PostScroll}} {{range .PostScroll}}
+            <div class="post">
+              <div class="post_top">
+                <div class="avatar">
+                  <i class="fas fa-user-ninja fa-5x"></i>
+                </div>
+                <div class="description">
+                  <h3>
+                    <a class="title" target="_self" rel="noopener noreferrer"
+                      href="/post?id={{.Post.PostID}}">{{.Post.Title}}</a>
+                  </h3>
+                  <br>
+                  <span class="author">
+                    <strong>Author:</strong> {{.Post.Author}}
+                  </span>
+
+                  <div class="categories"><strong>Category:</strong> {{.Post.Category1}}
+                    {{.Post.Category2}} {{.Post.Category3}} {{.Post.Category4}}
+                  </div>
+
+                  <span class="date"><strong>Created at:</strong> {{.Post.CreationDate}}</span>
+                  <br>
+                  <br>
+                  <div class="content">
+                    <strong>Post:</strong><em> {{.Post.Text}} </em>
+                  </div>
+
+                </div>
+              </div>
+              <div class="post_bottom">
+                <div class="content_info">
+                  <p>
+                    <a class="like_title" href="/rate?post_id={{.Post.PostID}}">👍</a>
+                    <span class="like_num">{{.PostLD.Likecount}} |</span>
+                    <a class="dislike_title" href="/rate?post_id=-{{.Post.PostID}}">👎</a>
+                    <span class="dislike_num"> {{.PostLD.Dislikecount}}</span>
+                  </p>
+                </div>
+                <br />
+              </div>
+            </div>
+
+            {{end}} {{end}}
+          </div>
+        </div>
+      </section>
+    </center>
+  </main>
+</body>
+<footer>
+  <section class="pagecolor">
+    <div class="container">
+      <center>
+        <div class="text-block">
+          <h4><strong>Forum team:</strong></h4>
+          <br>
+          <p><i>Sonal, Nathan, Kingsley, Helena</i></p>
+        </div>
+        <br>
+        <img id="footerimg" src="../static/assets/01Founderscrop2.png" alt="01founders" style="width: 40%" />
+      </center>
+    </div>
+  </section>
+</footer>
+
+</html>
